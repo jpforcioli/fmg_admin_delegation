@@ -1,0 +1,318 @@
+# Ansible variables
+ansible_host: secops-demo-001.gcp.fortipoc.net
+ansible_httpapi_port: 10421
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+ansible_network_os: fortinet.fortimanager.fortimanager
+ansible_user: devops
+ansible_password: fortinet
+
+# FortiManager variables
+adom_name: demo_001
+adom_version: "6.0"
+adom_mr: 4
+pause_sec: 10
+
+device_groups:
+  - world
+  - apac
+  - emea
+  - belgium
+  - finland
+  - france
+  - germany
+  - russia
+  - switzerland
+  - apac
+  - malaysia
+  - thailand
+
+device_groups_mapping:
+  - name: world
+    members: [apac, emea]
+  - name: apac
+    members: [malaysia, thailand]
+  - name: emea
+    members: [belgium, finland, france, germany, russia, switzerland]
+
+model_devices:
+  - name: th_bangkok
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000001
+  - name: my_kuala_lumpur
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000002
+  - name: be_brussels
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000003
+  - name: be_bruges
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000004
+  - name: fi_helsinki
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000005
+  - name: fi_espoo
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000006
+  - name: fr_paris
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000007
+  - name: fr_lille
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000008
+  - name: fr_lyon
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000009 
+  - name: de_munich
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000010 
+  - name: de_berlin
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000011 
+  - name: ru_moscow
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000012
+  - name: ch_bern
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000013  
+  - name: ch_zurich
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000014 
+  - name: ch_geneva
+    adm_pass: fortinet
+    adm_usr: admin
+    desc: '{{ description }}'
+    device action: add_model
+    mgmt_mode: fmg
+    mr: "{{ adom_mr }}"
+    os_type: fos
+    os_ver: "{{ adom_version }}"
+    platform_str: FortiGate-VM64-KVM
+    sn: FGVMUL0000000015
+
+model_devices_mapping:
+  - name: malaysia
+    members: [my_kuala_lumpur]
+  - name: thailand
+    members: [th_bangkok]
+  - name: belgium
+    members: [be_bruges, be_brussels]
+  - name: finland
+    members: [fi_espoo, fi_helsinki]
+  - name: france
+    members: [fr_lille, fr_lyon, fr_paris]
+  - name: germany
+    members: [de_berlin, de_munich]
+  - name: russia
+    members: [ru_moscow]
+  - name: switzerland
+    members: [ch_bern, ch_geneva, ch_zurich]
+
+policy_package_folders:
+  - name: world
+    type: folder
+    subobj:
+      - name: apac
+        type: folder
+        subobj:
+          - name: malaysia
+            type: folder
+            subobj:
+              - name: ppkg_my_kuala_lumpur
+                type: pkg
+          - name: thailand
+            type: folder
+            subobj:
+              - name: ppkg_th_bangkok
+                type: pkg
+      - name: emea
+        type: folder
+        subobj:
+          - name: belgium
+            type: folder
+            subobj:
+              - name: ppkg_be_brussels
+                type: pkg
+              - name: ppkg_be_bruges
+                type: pkg
+          - name: finland
+            type: folder
+            subobj:
+              - name: ppkg_fi_helsinki
+                type: pkg
+              - name: ppkg_fi_espoo
+                type: pkg
+          - name: france
+            type: folder
+            subobj:
+              - name: ppkg_fr_paris
+                type: pkg
+              - name: ppkg_fr_lille
+                type: pkg
+              - name: ppkg_fr_lyon
+                type: pkg
+          - name: germany
+            type: folder
+            subobj:
+              - name: ppkg_de_munich
+                type: pkg
+              - name: ppkg_de_berlin
+                type: pkg
+          - name: russia
+            subobj:
+              - name: ppkg_ru_moscow
+                type: pkg          
+            type: folder
+          - name: switzerland
+            type: folder
+            subobj:
+              - name: ppkg_ch_bern
+                type: pkg
+              - name: ppkg_ch_zurich
+                type: pkg
+              - name: ppkg_ch_geneva
+                type: pkg
+
+policy_package_targets:
+  - name: /world/apac/malaysia/ppkg_my_kuala_lumpur
+    target: my_kuala_lumpur
+  - name: /world/apac/thailand/ppkg_th_bangkok
+    target: th_bangkok
+  - name: /world/emea/belgium/ppkg_be_bruges
+    target: be_bruges
+  - name: /world/emea/belgium/ppkg_be_brussels
+    target: be_bruges
+  - name: /world/emea/finland/ppkg_fi_espoo
+    target: fi_espoo
+  - name: /world/emea/finland/ppkg_fi_helsinki
+    target: fi_helsinki
+  - name: /world/emea/france/ppkg_fr_lille
+    target: fr_lille
+  - name: /world/emea/france/ppkg_fr_lyon
+    target: fr_lyon
+  - name: /world/emea/france/ppkg_fr_paris
+    target: fr_paris
+  - name: /world/emea/germany/ppkg_de_berlin
+    target: de_berlin
+  - name: /world/emea/germany/ppkg_de_munich
+    target: de_munich
+  - name: /world/emea/russia/ppkg_ru_moscow
+    target: ru_moscow
+  - name: /world/emea/switzerland/ppkg_ch_bern
+    target: ch_bern
+  - name: /world/emea/switzerland/ppkg_ch_geneva
+    target: ch_geneva
+  - name: /world/emea/switzerland/ppkg_ch_zurich
+    target: ch_zurich

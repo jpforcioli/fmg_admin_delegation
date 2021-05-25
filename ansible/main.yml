@@ -1,0 +1,47 @@
+---
+- name: Create an ADOM Delegation Demo
+  connection: httpapi
+  hosts: fmg
+  collections:
+    - fortinet.fortimanager
+
+  tasks:
+    - name: Create ADOM
+      include_tasks: tasks/create_adom.yml
+      tags: create_adom
+    
+    - name: Create Device Groups
+      include_tasks: tasks/create_device_groups.yml
+      loop: "{{ device_groups }}"
+      loop_control:
+        loop_var: device_group
+      tags: create_device_groups
+
+    - name: Organize Device Groups
+      include_tasks: tasks/organize_device_groups.yml
+      loop: "{{ device_groups_mapping }}"
+      loop_control:
+        loop_var: device_group
+      tags: organize_device_groups        
+
+    - name: Create Model Devices
+      include_tasks: tasks/create_model_devices.yml
+      tags: create_model_devices
+
+    - name: Move Model Devices in Device Groups
+      include_tasks: tasks/move_model_devices_in_device_groups.yml
+      loop: "{{ model_devices_mapping }}"
+      loop_control:
+        loop_var: device_group
+      tags: move_model_devices
+
+    - name: Create Policy Packages
+      include_tasks: tasks/create_policy_packages.yml
+      tags: create_policy_packages
+
+    - name: Set Policy Package Installation Targets
+      include_tasks: tasks/set_policy_package_targets.yml
+      loop: "{{ policy_package_targets }}"
+      loop_control:
+        loop_var: policy_package_target
+      tags: set_policy_package_targets

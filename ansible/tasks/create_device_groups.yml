@@ -1,0 +1,8 @@
+- name: Create Device Group {{ adom_name }}/{{ device_group }}
+  fmgr_dvmdb_group:
+    adom: "{{ adom_name }}"
+    state: present
+    dvmdb_group:
+      name: "{{ device_group }}"
+      desc: "{{ description }}"
+  tags: create_device_groups

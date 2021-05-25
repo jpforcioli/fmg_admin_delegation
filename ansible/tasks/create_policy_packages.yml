@@ -1,0 +1,7 @@
+- name: Create Policy Packages in ADOM {{ adom_name }}
+  fmgr_generic:
+    method: set
+    params:
+      - url: /pm/pkg/adom/{{ adom_name }}
+        data: "{{ policy_package_folders }}" 
+  tags: create_policy_packages       

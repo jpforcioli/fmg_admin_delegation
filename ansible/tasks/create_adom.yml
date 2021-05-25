@@ -1,0 +1,11 @@
+- name: Create ADOM {{ adom_name }}
+  fmgr_dvmdb_adom:
+    state: present
+    dvmdb_adom:
+      name: '{{ adom_name }}'
+      desc: '{{ description }}'
+      mr: '{{ adom_mr }}'
+      os_ver: '{{ adom_version }}'
+      restricted_prds:
+        - fos
+  tags: create_adom

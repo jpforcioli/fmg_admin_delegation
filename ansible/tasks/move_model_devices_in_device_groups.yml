@@ -1,0 +1,12 @@
+- name: Move Devices in Group {{ adom_name }}/{{ device_group.name }}
+  fmgr_generic:
+    method: add
+    params:
+      - url: /dvmdb/adom/{{ adom_name }}/group/{{ device_group.name }}/object member
+        data:
+          - name: '{{ device }}'
+            vdom: root
+  loop: '{{ device_group.members }}'
+  loop_control:
+    loop_var: device
+  tags: move_model_devices    

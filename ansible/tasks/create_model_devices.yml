@@ -1,0 +1,22 @@
+- name: Add Devices List in ADOM {{ adom_name }}
+  fmgr_dvm_cmd_add_devlist:
+    dvm_cmd_add_devlist:
+      adom: "{{ adom_name }}"
+      add-dev-list: "{{ model_devices }}"
+      flags:
+        - create_task
+  register: created_task
+  tags: create_model_devices  
+
+- name: Wait for Add Devices List Task to complete
+  fmgr_fact:
+    facts:
+      selector: task_task
+      params:
+        task: '{{ created_task.meta.response_data.taskid }}'
+  register: task_info
+  until: task_info.meta.response_data.percent == 100
+  retries: 100
+  delay: '{{ pause_sec }}'
+  failed_when: task_info.meta.response_data.state == 'error'
+  tags: create_model_devices  
