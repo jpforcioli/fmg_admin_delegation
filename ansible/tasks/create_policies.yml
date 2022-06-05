@@ -1,0 +1,23 @@
+- name: Create policies in {{ adom_name}}{{ policy_package.name }}
+  fmgr_pkg_firewall_policy:
+    bypass_validation: true
+    adom: "{{ adom_name }}"
+    pkg: "{{ policy_package.name }}"
+    state: present
+    pkg_firewall_policy:
+      action: accept
+      comments: "{{ description }}"
+      dstaddr: "{{ item.dstaddr.split('|') }}"
+      dstintf: any
+      global-label: "{{ item.label }}"
+      label: "{{ item.label }}"
+      logtraffic: all
+      logtraffic-start: enable
+      name: "{{ item.name }}"
+      policyid: "{{ item.policyid | int }}"
+      schedule: "always"
+      service: "{{ item.service.split('|') }}"
+      srcaddr: "{{ item.srcaddr.split('|') }}"
+      srcintf: any
+  loop: "{{ firewall_policies.list }}"
+  tags: create_policies

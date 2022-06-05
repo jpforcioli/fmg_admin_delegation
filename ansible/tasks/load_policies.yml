@@ -1,0 +1,8 @@
+- name: Load CSV file {{ firewall_policy_csv_file | basename() }}
+  community.general.read_csv:
+    path: '{{ firewall_policy_csv_file }}'
+    fieldnames: policyid,name,srcaddr,dstaddr,service,label
+    delimiter: ','
+  register: firewall_policies
+  delegate_to: localhost
+  tags: load_policies

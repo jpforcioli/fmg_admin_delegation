@@ -2,7 +2,7 @@
   fmgr_generic:
     method: set
     params:
-      - url: pm/pkg/adom/{{ adom_name }}{{ policy_package_target.name }}
+      - url: pm/pkg/adom/{{ adom_name }}/{{ policy_package_target.name }}
         data:
           scope member:
             - name: "{{ policy_package_target.target }}"  

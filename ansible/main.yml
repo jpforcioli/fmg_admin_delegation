@@ -45,3 +45,19 @@
       loop_control:
         loop_var: policy_package_target
       tags: set_policy_package_targets
+
+    - name: create objects
+      include_tasks: tasks/create_objects.yml
+      tags: create_objects
+
+
+    - name: Load policies in ansibe variables
+      include_tasks: tasks/load_policies.yml
+      tags: load_policies
+
+    - name: Create policies
+      include_tasks: tasks/create_policies.yml      
+      loop: "{{ policy_package_targets }}"
+      loop_control:
+        loop_var: policy_package
+      tags: create_policies

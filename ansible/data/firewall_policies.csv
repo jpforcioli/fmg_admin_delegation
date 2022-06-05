@@ -1,0 +1,5 @@
+1,Policy_001,host_001,host_002,HTTP|HTTPS,Project #001
+2,Policy_002,host_003,host_004,PING,Project #001
+3,Policy_003,host_005,host_006,SSH,Project #002
+4,Policy_004,host_001|host_002,host_003|host_004,SMTP,Project #002
+5,Policy_005,host_007,host_008,FTP,Project #003

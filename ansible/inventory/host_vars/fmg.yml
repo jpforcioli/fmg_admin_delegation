@@ -286,33 +286,36 @@ policy_package_folders:
                 type: pkg
 
 policy_package_targets:
-  - name: /world/apac/malaysia/ppkg_my_kuala_lumpur
+  - name: world/apac/malaysia/ppkg_my_kuala_lumpur
     target: my_kuala_lumpur
-  - name: /world/apac/thailand/ppkg_th_bangkok
+  - name: world/apac/thailand/ppkg_th_bangkok
     target: th_bangkok
-  - name: /world/emea/belgium/ppkg_be_bruges
+  - name: world/emea/belgium/ppkg_be_bruges
     target: be_bruges
-  - name: /world/emea/belgium/ppkg_be_brussels
-    target: be_bruges
-  - name: /world/emea/finland/ppkg_fi_espoo
+  - name: world/emea/belgium/ppkg_be_brussels
+    target: be_brussels
+  - name: world/emea/finland/ppkg_fi_espoo
     target: fi_espoo
-  - name: /world/emea/finland/ppkg_fi_helsinki
+  - name: world/emea/finland/ppkg_fi_helsinki
     target: fi_helsinki
-  - name: /world/emea/france/ppkg_fr_lille
+  - name: world/emea/france/ppkg_fr_lille
     target: fr_lille
-  - name: /world/emea/france/ppkg_fr_lyon
+  - name: world/emea/france/ppkg_fr_lyon
     target: fr_lyon
-  - name: /world/emea/france/ppkg_fr_paris
+  - name: world/emea/france/ppkg_fr_paris
     target: fr_paris
-  - name: /world/emea/germany/ppkg_de_berlin
+  - name: world/emea/germany/ppkg_de_berlin
     target: de_berlin
-  - name: /world/emea/germany/ppkg_de_munich
+  - name: world/emea/germany/ppkg_de_munich
     target: de_munich
-  - name: /world/emea/russia/ppkg_ru_moscow
+  - name: world/emea/russia/ppkg_ru_moscow
     target: ru_moscow
-  - name: /world/emea/switzerland/ppkg_ch_bern
+  - name: world/emea/switzerland/ppkg_ch_bern
     target: ch_bern
-  - name: /world/emea/switzerland/ppkg_ch_geneva
+  - name: world/emea/switzerland/ppkg_ch_geneva
     target: ch_geneva
-  - name: /world/emea/switzerland/ppkg_ch_zurich
+  - name: world/emea/switzerland/ppkg_ch_zurich
     target: ch_zurich
+
+firewall_address_csv_file: ${PWD}/data/firewall_addresses.csv
+firewall_policy_csv_file: ${PWD}/data/firewall_policies.csv
